@@ -1,0 +1,25 @@
+webrpc = v1
+
+name = api
+version = v0.0.1
+import ./status.ridl
+
+message Quote
+  - id?: uint32
+    + go.field.name = ID
+  - uuid?: string
+    + go.field.name = UUID
+  - title: string
+  - program_id: uint32
+    + go.field.name = ProgramID
+  - floorplan_id?: uint32
+    + go.field.name = FloorplanID
+  - logo?: string
+  - description?: string
+  - data: map<string,any>
+  - status: map<string,any>
+  - number: uint32
+
+service QuoteService
+  - Get(id: uint32) => (result: Quote)
+  - GetByUUID(uuid: string) => (result: Quote)

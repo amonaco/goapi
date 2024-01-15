@@ -1,0 +1,17 @@
+name: 'api'
+environment: 'local'
+listen: "0.0.0.0:80"
+postgres: "postgresql://postgres:dev@postgres/api?sslmode=disable"
+nats: "nats:4222"
+redis:
+  address: "redis://redis:6379/0"
+  max_conn: 3
+  database: 0
+storage:
+    endpoint: "static.foo.test"
+    access_key: "accesskey123"
+    secret_key: "secretkey123"
+    signature_expiry: "300"
+    bucket: "foo"
+sendgrid_api_key: "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"
+signin_url: "http://login.foo.test"

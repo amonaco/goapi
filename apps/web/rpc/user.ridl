@@ -1,0 +1,30 @@
+webrpc = v1
+
+name = api
+version = v0.0.1
+import ./status.ridl
+
+message User
+  - id?: uint32
+    + go.field.name = ID
+  - company_id: uint32
+    + go.field.name = CompanyID
+  - uuid?: string
+    + go.field.name = UUID
+  - sector_id?: uint32
+    + go.field.name = SectorID
+  - email: string
+  - address: string
+  - phone: string
+  - name: string
+  - lastname: string
+  - roles?: []string
+  - status?: string
+
+service UserService
+  - Get(id: uint32) => (result: User)
+  - GetAll() => (result: []User)
+  - CreateEditorUser(user: User) => (status: Status)
+  - Update(user: User) => (status: Status)
+  - GetCurrent() => (result: User)
+  - GetByUUID(uuid: string) => (result: User)
